@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+body {
+  background: transparent;
+  background-color: transparent;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Stratum";
+  src:
+    url("/fonts/stratum.ttf") format("truetype"),
+    url("/fonts/stratum.woff") format("woff");
+}
+
+@keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+
+@-moz-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+
+@keyframes scroll-space {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 1000px 1000px;
+  }
+}
+
+
+@keyframes astronaut-hover {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(0, -10px);
+  }
+}
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1 !important;
+}
+
+
+.stars {
+  background: black url("/stars.png") repeat;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: 0;
+  animation: scroll-space 125s linear infinite;
+}
+
+.twinkling {
+  width: 10000px;
+  height: 100%;
+  background: transparent url("/twinkling.png") repeat;
+  background-size: 1000px 1000px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+
+  -moz-animation: move-background 70s linear infinite;
+  -ms-animation: move-background 70s linear infinite;
+  -o-animation: move-background 70s linear infinite;
+  -webkit-animation: move-background 70s linear infinite;
+  animation: move-background 70s linear infinite;
+}
+
+
+.astronaut-container {
+  width: 256px;
+  height: 256px;
+  z-index: 2 !important;
+  animation: astronaut-hover 5s infinite alternate ease-in-out;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+::selection {
+  background-color: theme("colors.yellow.300") !important;
+  color: theme("colors.black") !important;
+}

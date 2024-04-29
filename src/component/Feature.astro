@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<a
+  class="group block transition duration-200 rounded-xl border border-white/50 bg-white/5 backdrop-blur-sm p-4 shadow-sm hover:border-yellow-300 hover:ring-1 hover:ring-yellow-300 focus:outline-none focus:ring"
+  href="#"
+>
+  <!-- <span class="inline-block rounded-lg bg-gray-50 p-3"> </span> -->
+  <h2 class="group-hover:text-yellow-300 mt-2 font-bold text-white">{title}</h2>
+  <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-zinc-400">
+    {description}
+  </p>
+</a>

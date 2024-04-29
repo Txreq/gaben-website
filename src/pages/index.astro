@@ -1,5 +1,25 @@
 ---
+import Image from "astro/components/Image.astro";
+import "../styles/global.scss";
 
+import AstronautImage from "../../public/gaben.webp";
+import Feature from "../component/Feature.astro";
+import type { Code } from "astro:components";
+
+const Features = [
+	{ title: "Undetected", description: "Remain unnoticed by VAC while hacking" },
+	{ title: "ESP", description: "Spot them before they spot you" },
+	{ title: "Trigger Bot", description: "Fly under the radar with precision" },
+	{
+		title: "Skin Changer",
+		description: "Why spend money on skins when you can get them for free?",
+	},
+	{ title: "Aimbot", description: "No need to manually aim anymore" },
+	{
+		title: "Legit Hacks",
+		description: "Appear as if you're not hacking at all",
+	},
+] as Array<{ title: string; description: string }>;
 ---
 
 <html lang="en">
@@ -11,6 +31,56 @@
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<div class="absolute top-8 left-1/2 -translate-x-1/2">
+			<div class="astronaut-container">
+				<Image src={AstronautImage} alt="gaben astronaut" />
+			</div>
+		</div>
+		<div class="max-w-screen-xl m-auto h-screen overflow-hidden">
+			<div class="w-full h-full grid place-content-center">
+				<div
+					class="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16"
+				>
+					<div
+						class="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-16"
+					>
+						<div
+							class="mx-auto max-w-lg text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right"
+						>
+							<h2
+								class="text-7xl font-black text-white uppercase font-[Stratum]"
+							>
+								<span>gaben</span><span class="text-yellow-400">.exe</span>
+							</h2>
+
+							<p class="mt-4 text-zinc-300">
+								The best free <a
+									class="hover:text-yellow-400"
+									target="_blank"
+									href="https://store.steampowered.com/app/730/CounterStrike_2/"
+									>Counter-Strike 2</a
+								> cheat in the industry with every feature you can imagine. Get good
+								with no efforts at all.
+							</p>
+							<a
+								download
+								href="#"
+								class="mt-8 inline-block rounded bg-yellow-400 px-12 py-3 text-sm font-medium text-white transition hover:bg-yellow-500 focus:outlin e-none focus:ring focus:ring-yellow-400"
+							>
+								Download Now
+							</a>
+						</div>
+
+						<div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
+							{Features.map((feature) => <Feature {...feature} />)}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="background-container">
+				<div class="stars"></div>
+				<div class="twinkling"></div>
+			</div>
+		</div>
 	</body>
 </html>
